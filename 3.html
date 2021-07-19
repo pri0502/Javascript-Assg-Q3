@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <script>
+            
+          fetch("http://api.nobelprize.org/v1/prize.json")
+          .then((response)=>response.json())
+          .then((data)=>{
+              console.log(data)
+          const prizes=data.prizes;
+          const filteredData=prizes.filter(
+              (prize)=>
+              prize.year >='2000' &&
+
+              prize.year <='2019'&&
+              prize.category=='chemistry'
+          );
+          console.log(filteredData)})
+        //     
+
+          .catch((error)=>console.log(error));
+
+        </script>
+    </head>
+</html>
